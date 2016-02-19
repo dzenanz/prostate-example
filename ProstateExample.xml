@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>Segmentation</category>
+  <title>Prostate segmentation example</title>
+  <description>A simple CLI example.</description>
+  <version>1.0</version>
+  <license>Apache 2.0</license>
+  <contributor>Kitware, Inc.</contributor>
+  <acknowledgements>
+  </acknowledgements>
+
+  <parameters>
+    <label>Parameters</label>
+
+    <image type="scalar">
+      <longflag>inputImage</longflag>
+      <label>inputImage</label>
+      <channel>input</channel>
+      <description>Input image to be segmented.</description>
+    </image>
+
+    <pointfile coordinateSystem="lps">
+      <longflag>initializationPoints</longflag>
+      <label>initializationPoints</label>
+      <channel>input</channel>
+      <description>Superior apex, anterior apex, left NVB, right NVB, inferior apex.</description>
+    </pointfile>
+
+    <double>
+      <longflag>rmsError</longflag>
+      <label>rmsError</label>
+      <channel>input</channel>
+      <default>0.001</default>
+      <description>Termination condition. Smaller values mean more computation.</description>
+    </double>
+    
+    <integer>
+      <longflag>maxIterations</longflag>
+      <label>maxIterations</label>
+      <channel>input</channel>
+      <default>800</default>
+      <description>Maximum number of iterations of the level set filter.</description>
+    </integer>
+    
+    <image type="label">
+      <longflag>segmentationResult</longflag>
+      <label>segmentationResult</label>
+      <channel>output</channel>
+      <description>Segmentation result.</description>
+    </image>
+
+  </parameters>
+</executable>
